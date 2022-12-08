@@ -16,6 +16,26 @@ import { COLORS, SIZES, icons } from "../constants"
 
 const Tab = createBottomTabNavigator()
 
+const CustomTabBar = (props) => {
+    return (
+        <View>
+            <View
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: 30,
+              backgroundColor: COLORS.gray3
+            }}
+            />
+            <BottomTabBar
+            {...props.props}
+            />
+        </View>
+    )
+}
+
 const CustomTabBarButton = ({containerStyle, isFloat, children, onPress 
 }) => {
     if (isFloat) {
@@ -23,7 +43,8 @@ const CustomTabBarButton = ({containerStyle, isFloat, children, onPress
           <View
           style={{
             flex: 1,
-            alignItems: 'center'
+            alignItems: 'center',
+            
           }}
           >
          <Svg
@@ -79,10 +100,12 @@ const Tabs = () => {
 
     return (
         <Tab.Navigator
-            tabBarOptions={{
-                showLabel: false,
-                style: {
-                    position: 'absolute',
+        screenOptions={{
+            tabBarShowLabel: false,
+            tabBar: false,
+            tabBarStyle: [
+              {
+                position: 'absolute',
                     bottom: 0,
                     left: 0,
                     right: 0,
@@ -90,9 +113,14 @@ const Tabs = () => {
                     backgroundColor: "transparent",
                     borderTopColor: "transparent",
                     height: (Platform.OS == 'android') ? 60 : 80
-                }
-            }}
-        >
+              },
+            ],
+          }}
+            tabBar={(props) => (
+               <CustomTabBar
+               props={props} />
+            )}
+         >
             <Tab.Screen
                 name="Home"
                 component={Home}
@@ -136,6 +164,9 @@ const Tabs = () => {
                     tabBarButton: (props) => (
                         <CustomTabBarButton
                         {...props}
+                        containerStyle={{
+                            marginRight: 6
+                        }}
                         />
                     )
                 }}
@@ -182,6 +213,9 @@ const Tabs = () => {
                     tabBarButton: (props) => (
                         <CustomTabBarButton
                         {...props}
+                        containerStyle={{
+                            marginLeft: 6
+                        }}
                         />
                     )
                 }}
