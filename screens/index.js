@@ -9,5 +9,6 @@ export {
     Location,
     Order,
     OrderDetail,
-    Rewards
+    Rewards,
+    
 }

@@ -4,14 +4,17 @@ import {
     Image,
     Platform,
     TouchableOpacity,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback,
 } from "react-native";
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 
 import Svg, {Path} from 'react-native-svg';
 
+
+
 import { Home, Rewards } from "../screens"
 import { COLORS, SIZES, icons } from "../constants"
+import { Header } from "@react-navigation/stack";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Tab = createBottomTabNavigator()
@@ -26,9 +29,10 @@ const CustomTabBar = (props) => {
               left: 0,
               right: 0,
               height: 30,
-              backgroundColor: COLORS.gray3
+              backgroundColor: COLORS.purple
             }}
             />
+          
             <BottomTabBar
             {...props.props}
             />
@@ -98,7 +102,10 @@ const CustomTabBarButton = ({containerStyle, isFloat, children, onPress
 
 const Tabs = () => {
 
+    
+
     return (
+        
         <Tab.Navigator
         screenOptions={{
             tabBarShowLabel: false,
@@ -106,13 +113,13 @@ const Tabs = () => {
             tabBarStyle: [
               {
                 position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    elevation: 0,
-                    backgroundColor: "transparent",
-                    borderTopColor: "transparent",
-                    height: (Platform.OS == 'android') ? 60 : 80
+                bottom: 0,
+                left: 0,
+                right: 0,
+                elevation: 0,
+                backgroundColor: "transparent",
+                borderTopColor: "transparent",
+                height: (Platform.OS == 'android') ? 60 : 80
               },
             ],
           }}
@@ -125,6 +132,15 @@ const Tabs = () => {
                 name="Home"
                 component={Home}
                 options={{
+                    headerStyle: {
+                        backgroundColor: COLORS.black,
+                      },
+                      headerTintColor: 'gray',
+                      headerTitleStyle: {
+                        fontWeight: 'bold',
+                      },
+
+                      
                     tabBarIcon: ({ focused }) => (
                         <Image
                             source={icons.home}
@@ -150,6 +166,13 @@ const Tabs = () => {
                 name="Rewards"
                 component={Rewards}
                 options={{
+                    headerStyle: {
+                        backgroundColor: COLORS.black,
+                      },
+                      headerTintColor: 'gray',
+                      headerTitleStyle: {
+                        fontWeight: 'bold',
+                      },
                     tabBarIcon: ({ focused }) => (
                         <Image
                             source={icons.bubbleTea}
@@ -176,6 +199,13 @@ const Tabs = () => {
                 name="AddOrder"
                 component={Home}
                 options={{
+                    headerStyle: {
+                        backgroundColor: COLORS.black,
+                      },
+                      headerTintColor: 'gray',
+                      headerTitleStyle: {
+                        fontWeight: 'bold',
+                      },
                     tabBarIcon: ({ focused }) => (
                         <Image
                             source={icons.add}
@@ -199,6 +229,14 @@ const Tabs = () => {
                 name="Favourite"
                 component={Home}
                 options={{
+
+                    headerStyle: {
+                        backgroundColor: COLORS.black,
+                      },
+                      headerTintColor: 'gray',
+                      headerTitleStyle: {
+                        fontWeight: 'bold',
+                      },
                     tabBarIcon: ({ focused }) => (
                         <Image
                             source={icons.heart}
@@ -224,6 +262,14 @@ const Tabs = () => {
                 name="Profile"
                 component={Home}
                 options={{
+
+                    headerStyle: {
+                        backgroundColor: COLORS.black,
+                      },
+                      headerTintColor: 'gray',
+                      headerTitleStyle: {
+                        fontWeight: 'bold',
+                      },
                     tabBarIcon: ({ focused }) => (
                         <Image
                             source={icons.profile}
@@ -244,7 +290,10 @@ const Tabs = () => {
                         />
                     )
                 }}
+                
             />
+        
+
         </Tab.Navigator>
     )
 }

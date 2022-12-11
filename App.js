@@ -2,9 +2,12 @@ import React from 'react';
 import { Location, Order, OrderDetail } from "./screens";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-import SplashScreen from 'react-native-splash-screen'
+// import SplashScreen from 'react-native-splash-screen'
+
+import { Home, Rewards } from "./screens"
 
 import Tabs from "./navigation/tabs";
+import { COLORS } from './constants';
 
 const Stack = createStackNavigator();
 
@@ -17,14 +20,25 @@ const App = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                screenOptions={{
+                Options={{
                     headerShown: false
                 }}
                 initialRouteName={'Home'}
             >
                 <Stack.Screen
-                    name="Tabs"
+                    name="Home"
                     component={Tabs}
+                    options={{
+                        headerStyle: {
+                          backgroundColor: COLORS.black,
+                        },
+                        headerTintColor: 'black',
+                        headerTitleStyle: {
+                          fontWeight: 'bold',
+                        },
+                      }}
+
+                    
                 />
 
                 <Stack.Screen
