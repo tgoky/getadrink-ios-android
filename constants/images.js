@@ -1,7 +1,10 @@
 const strawberryBackground = require("../assets/images/strawberry-background.png")
+const pixelDrinksOne = require("../assets/images/pixeldrinks1.png")
+
 
 export default {
-    strawberryBackground
+    strawberryBackground,
+    pixelDrinksOne
 }
 
 

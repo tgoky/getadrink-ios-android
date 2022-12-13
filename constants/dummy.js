@@ -218,12 +218,38 @@ const promos = [
 
 ]
 
+const pixeldrink = [
+    {
+        id: 1,
+        name: "Redeem GetaDrink NFT",
+        description: "Best of Drinks NFT",
+        calories: "click button to navigate",
+        image: require("../assets/images/pixeldrinks1.png")
+    },
+    {
+        id: 2,
+        name: "Redeem GetaDrink NFT",
+        description: "Best of Drinks NFT",
+        calories: "click button to navigate",
+        image: require("../assets/images/pixeldrinks1.png")
+    },
+    {
+        id: 3,
+        name: "Redeem GetaDrink NFT",
+        description: "Best of Drinks NFT",
+        calories: "click button to navigate",
+        image: require("../assets/images/pixeldrinks1.png")
+    },
+
+]
+
 const dummyData = {
     availableRewards,
     locations,
     menuList,
     milkList,
     promos,
+    pixeldrink
 };
 
 export default dummyData;

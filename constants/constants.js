@@ -1,11 +1,11 @@
 const promoTabs = [
     {
         id: 1,
-        title: "Scan in store",
+        title: "Redeem NFT",
     },
     {
         id: 2,
-        title: "Drink of the Day",
+        title: "Scan in Store",
     },
     {
         id: 3,
