@@ -81,7 +81,7 @@ export const Home = ({ navigation }) => {
                 width: 500,
                 borderRadius: 15,
                 borderBottomRightRadius: 32,
-                borderTopEndRadius: 38,
+                borderTopEndRadius: 34,
                 borderEndWidth: 13,
                 borderBottomEndRadius: 34,
                 borderColor: COLORS.lightPink,
