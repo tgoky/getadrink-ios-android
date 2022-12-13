@@ -27,7 +27,8 @@ export const Home = ({ navigation }) => {
             style={{
                 flexDirection: 'row',
                 marginTop: 17,
-                height: 100
+                height: 100,
+                width: 382,
             }}
             onPress={() => navigation.navigate("Rewards")}
             >
@@ -66,7 +67,7 @@ export const Home = ({ navigation }) => {
                         backgroundColor: COLORS.transparentBlack
                     }}
                     >
-                        <Text style={{color: COLORS.white, ...FONTS.h2}}>280</Text>
+                        <Text style={{color: COLORS.white, ...FONTS.h2}}>28</Text>
                     </View>
 
                  </ImageBackground>
@@ -77,9 +78,16 @@ export const Home = ({ navigation }) => {
                 flex: 1,
                 backgroundColor: COLORS.lightPink,
                 marginLeft: -10,
+                width: 500,
                 borderRadius: 15,
+                borderBottomRightRadius: 32,
+                borderTopEndRadius: 38,
+                borderEndWidth: 13,
+                borderBottomEndRadius: 34,
+                borderColor: COLORS.lightPink,
                 alignItems: "center",
                 justifyContent: "center"
+                
               }}
               >
                 <Text style={{ color: COLORS.primary, ...FONTS.h2, fontSize: 20, fontWeight:'bold'}}>
@@ -90,6 +98,7 @@ export const Home = ({ navigation }) => {
                 style={{
                     marginTop: 5,
                     padding: SIZES.base,
+                    left: 5,
                     borderRadius: SIZES.radius * 2,
                     backgroundColor: COLORS.primary
                 }}>
