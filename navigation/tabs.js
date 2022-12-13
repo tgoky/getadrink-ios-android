@@ -129,7 +129,7 @@ const Tabs = () => {
             )}
          >
             <Tab.Screen
-                name="Home"
+                name="GetaDrink"
                 component={Home}
                 options={{
                     headerStyle: {

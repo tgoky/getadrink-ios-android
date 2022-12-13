@@ -8,14 +8,23 @@ import {
     SafeAreaView
 } from 'react-native';
 
+import { connect } from "react-redux";
+
+import { toggleTheme } from "../stores/themeActions";
+
 import { COLORS, FONTS, SIZES, icons } from '../constants';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-
-const Tab = createMaterialTopTabNavigator();
-
-
-export const HeaderBar = () => {
+ export const HeaderBar = ( { appTheme, toggleTheme}) => {
+    
+    // function toggleThemeHandler() {
+    //     if(appTheme.name == "light") {
+    //         toggleTheme("dark")
+    //     } else {
+    //         toggleTheme("light")
+    //     }
+    // }
+    
+    
     return (
         
         <SafeAreaView
@@ -52,6 +61,7 @@ export const HeaderBar = () => {
             borderRadius: 20,
             backgroundColor: COLORS.lightPurple   
         }}
+        // onPress={() => toggleThemeHandler()}
         >
             {/* Sun */}
             <View 
@@ -59,7 +69,9 @@ export const HeaderBar = () => {
                 width: 40,
                 height: 40,
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                // ...(appTheme.name == "light") ? styles.
+                // selectedLightModeStyle : {}
             }}>
                <Image
                source={icons.sunny}
@@ -71,6 +83,7 @@ export const HeaderBar = () => {
                />
 
             </View>
+
             {/* Moon */}
             <View
             style={{
@@ -78,7 +91,8 @@ export const HeaderBar = () => {
                 height: 40,
                 alignItems: 'center',
                 justifyContent: 'center',
-                ...styles.selectedNightModeStyle
+                // ...(appTheme.name == "dark") ? styles.
+                // selectedLightModeStyle : {}
                 
             }}
             >
@@ -108,5 +122,18 @@ export const HeaderBar = () => {
     })
 
 
+function mapStateToProps(state) {
+    return {
+        appTheme: state.appTheme,
+        error: state.error
+    }
+}
 
-export default HeaderBar;
+function mapDispatchToProps(dispatch) {
+    return {
+        toggleTheme: (themeType) => { return dispatch(toggleTheme
+            (themeType))}
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderBar);
